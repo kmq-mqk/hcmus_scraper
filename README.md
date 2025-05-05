@@ -4,6 +4,10 @@ Là SV của VNU-HCMUS, mình hay bỏ lỡ các sự kiện vì số lượng n
 
 ## Giới thiệu chung
 
+Scrapers cào thông tin từ web và tổng hợp vắn tắt các bài viết trên web đối tượng, phản ứng khi có bài viết mới so với phần tương ứng trong file .txt
+- Notify: hiện thông báo trên góc nếu có cập nhật file .txt.
+- Pop-up: mở file .txt bằng ứng dụng mặc định (vì phiền nên đã bị comment lại).
+
 Ở đây, mình nhắm vào 2 web: hcmus.edu.vn và fit.hcmus.edu.vn
 
 ### hcmus_scraper.py

@@ -7,7 +7,7 @@ txtFilePath = 'hcmus.txt'
 
 def writeFile(targetBlock):
   # write file
-  fout = open('hcmus.txt', 'w')
+  fout = open(txtFilePath, 'w')
 
   # to check if there is new post later
   fout.write(f"{targetBlock.article['id']}\r\n\r\n\r\n")
@@ -72,7 +72,7 @@ def myNotify():
     for _ in range(3):
         notification.notify(
             title = 'ATTENTION !!!',
-            message = 'New post on fit@hcmus',
+            message = 'New post on hcmus',
             app_name = 'Your Scraper',
             app_icon = str(iconPath),
             timeout = 60
