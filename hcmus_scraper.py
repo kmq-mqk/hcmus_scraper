@@ -1,21 +1,19 @@
-
 import requests
 from bs4 import BeautifulSoup
 
-# write procedure
+txtFilePath = 'hcmus.txt'
+
+''' -----------------WRITE PROCEDURE----------------- '''
+
 def writeFile(targetBlock):
   # write file
   fout = open('hcmus.txt', 'w')
 
   # to check if there is new post later
   fout.write(f"{targetBlock.article['id']}\r\n\r\n\r\n")
+
   # get info relate to students
-
   fout.write(f"{border} THONG TIN SV {border}\r\n")
-
-  # targetBlock = soup.find("div", class_="cmsmasters_archive")
-
-
 
   articles = targetBlock.find_all("article")
 
@@ -27,7 +25,6 @@ def writeFile(targetBlock):
     fout.write(f"{date.string} _ [ {data.string.get_text(strip=True)} ]\r\n{data['href']}\r\n\r\n")
 
   # get newest posts
-
   fout.write(f"\r\n{border} THONG TIN MOI NHAT {border}\r\n")
 
   targetBlock = soup.find(string="Bài viết mới")
@@ -40,7 +37,50 @@ def writeFile(targetBlock):
   for post in data:
     fout.write(f"{post.span.string} _ [ {post.a.string} ]\r\n{post.a['href']}\r\n\r\n")
 
-# main
+
+''' -----------------NOTIFY PROCEDURE----------------- '''
+
+def myPopUp():
+    import os
+    import subprocess
+    import platform
+
+    if platform.system() == 'Linux':
+        subprocess.Popen(['xdg-open', txtFilePath])
+    elif platform.system() == 'Windows':
+        os.startfile(txtFilePath)
+
+
+''' -----------------NOTIFY PROCEDURE----------------- '''
+
+def myNotify():
+    from plyer import notification
+    import platform
+    import os
+
+# for lovely icon on notification
+    iconPath = ''
+    imgName = 'panic_bocchi'
+    cwd = os.getcwd()
+
+    if platform.system() == 'Linux':
+        iconPath = cwd + '/' + imgName + '.png'
+    elif platform.system() == 'Windows':
+        iconPath = cwd + '/' + imgName + '.ico'
+
+# spam 3 notifications
+    for _ in range(3):
+        notification.notify(
+            title = 'ATTENTION !!!',
+            message = 'New post on fit@hcmus',
+            app_name = 'Your Scraper',
+            app_icon = str(iconPath),
+            timeout = 60
+        )
+
+        
+''' -----------------MAIN-----------------  '''
+
 targetUrl = "https://hcmus.edu.vn/category/dao-tao/dai-hoc/thong-tin-danh-cho-sinh-vien/"
 
 headers = {
@@ -59,14 +99,15 @@ targetBlock = soup.find("div", class_="cmsmasters_archive")
 # read file
 fin = open('hcmus.txt', 'r')
 newest = fin.readline().strip()
-# if the file is empty
-if newest == '':
-  writeFile(targetBlock)
-else:
-  nowNewest = targetBlock.article['id']
 
-  if newest != nowNewest:
-    print("Have to update!")
-    writeFile(targetBlock)
-  else:
-    print("Already up to date!")
+nowNewest = targetBlock.article['id']
+# if the file is empty
+if newest != nowNewest:
+  print("Have to update!")
+  writeFile(targetBlock)
+#   notification on corner
+  myNotify()
+#   aggressively pop-up the storage .txt file
+#   myPopUp()
+else:
+  print("Already up to date!")
