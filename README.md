@@ -27,6 +27,14 @@ Là SV của VNU-HCMUS, mình hay bỏ lỡ các sự kiện vì số lượng n
 - subprocess
 - platform
 
+## Tải về
+
+```bash
+git clone https://github.com/kmq-mqk/hcmus_scraper.git
+```
+
+hoặc tải file .zip của repository này
+
 ## Chạy scrapers
 Chạy các dòng lệnh tương ứng dưới đây trên terminal / shell
 
