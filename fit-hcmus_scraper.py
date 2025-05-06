@@ -1,5 +1,6 @@
 import requests
 import json
+import time
 
 txtNormFilePath = 'fit-hcmus.txt'
 txtSemFilePath = 'fit-hcmus-seminar.txt'
@@ -57,85 +58,91 @@ def myNotify():
         )
 
 
-''' -----------------MAIN-----------------  '''
+while True:
+    ''' -----------------MAIN-----------------  '''
 
 
-''' -----------------THONG TIN CHUNG    '''
+    ''' -----------------THONG TIN CHUNG    '''
 
-# Call API to get target JSON
-originUrl = "https://www.fit.hcmus.edu.vn/"
-endPointUrl = "https://www.fit.hcmus.edu.vn/vn/Default.aspx?tabid=57"
-boundary = "----"
+    # Call API to get target JSON
+    originUrl = "https://www.fit.hcmus.edu.vn/"
+    endPointUrl = "https://www.fit.hcmus.edu.vn/vn/Default.aspx?tabid=57"
+    boundary = "----"
 
-headers = {
-    "Content-Type": f"multipart/form-data; boundary={boundary}",
-    "Origin": "https://www.fit.hcmus.edu.vn",
-    "Referer": "https://www.fit.hcmus.edu.vn/vn/Default.aspx?tabid=57",
-    "User-Agent": "Mozilla/5.0 Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0",
-    "X-OFFICIAL-REQUEST": "TRUE",
-}
+    headers = {
+        "Content-Type": f"multipart/form-data; boundary={boundary}",
+        "Origin": "https://www.fit.hcmus.edu.vn",
+        "Referer": "https://www.fit.hcmus.edu.vn/vn/Default.aspx?tabid=57",
+        "User-Agent": "Mozilla/5.0 Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0",
+        "X-OFFICIAL-REQUEST": "TRUE",
+    }
 
-payload = (
-    f"--{boundary}\r\n"
-    'Content-Disposition: form-data; name="action"\r\n\r\n'
-    "getPosts\r\n"
-    f"--{boundary}\r\n"
-    'Content-Disposition: form-data; name="data"\r\n\r\n'
-    '{"CategoryId":1,"PageSize":20,"PageIndex":1,"Keyword":""}\r\n'
-    f"--{boundary}--\r\n"
-)
+    payload = (
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="action"\r\n\r\n'
+        "getPosts\r\n"
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="data"\r\n\r\n'
+        '{"CategoryId":1,"PageSize":20,"PageIndex":1,"Keyword":""}\r\n'
+        f"--{boundary}--\r\n"
+    )
 
-response = requests.post(endPointUrl, headers=headers, data=payload.encode())
-json_re = response.json()
+    response = requests.post(endPointUrl, headers=headers, data=payload.encode())
+    json_re = response.json()
 
-# check if there is new post, if so, notice
-    # read file
-fin = open(txtFilePath, 'r')
-newest = fin.readline().strip()
+    # check if there is new post, if so, notice
+        # read file
+    fin = open(txtFilePath, 'r')
+    newest = fin.readline().strip()
 
-nowNewest = (json_re["Results"]["Posts"][0])["PostID"]
-    # if the file is empty
-if newest == '' or int(newest) != nowNewest:
-  print("Have to update!")
-  writeFile(txtFilePath, nowNewest, json_re)
-#   notification on corner
-  myNotify()
-#   aggressively pop-up the storage .txt file
-#   myPopUp(txtFilePath)
-else:
-  print("Already up to date!")
+    nowNewest = (json_re["Results"]["Posts"][0])["PostID"]
+        # if the file is empty
+    if newest == '' or int(newest) != nowNewest:
+        print("Have to update!")
+        writeFile(txtFilePath, nowNewest, json_re)
+    #   notification on corner
+        myNotify()
+    #   aggressively pop-up the storage .txt file
+    #   myPopUp(txtFilePath)
+    else:
+        print("Already up to date!")
 
 
 
-''' -----------------HOI THAO _ HOI NGHI    '''
+    ''' -----------------HOI THAO _ HOI NGHI    '''
 
-payload = (
-    f"--{boundary}\r\n"
-    'Content-Disposition: form-data; name="action"\r\n\r\n'
-    "getPosts\r\n"
-    f"--{boundary}\r\n"
-    'Content-Disposition: form-data; name="data"\r\n\r\n'
-    '{"CategoryId":20,"PageSize":20,"PageIndex":1,"Keyword":""}\r\n'
-    f"--{boundary}--\r\n"
-)
+    payload = (
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="action"\r\n\r\n'
+        "getPosts\r\n"
+        f"--{boundary}\r\n"
+        'Content-Disposition: form-data; name="data"\r\n\r\n'
+        '{"CategoryId":20,"PageSize":20,"PageIndex":1,"Keyword":""}\r\n'
+        f"--{boundary}--\r\n"
+    )
 
-response = requests.post(endPointUrl, headers=headers, data=payload.encode())
-json_re = response.json()
+    response = requests.post(endPointUrl, headers=headers, data=payload.encode())
+    json_re = response.json()
 
-# check if there is new post, if so, notice
-txtFilePath = txtSemFilePath
-    # read file
-fin = open(txtFilePath, 'r')
-newest = fin.readline().strip()
+    # check if there is new post, if so, notice
+    txtFilePath = txtSemFilePath
+        # read file
+    fin = open(txtFilePath, 'r')
+    newest = fin.readline().strip()
 
-nowNewest = (json_re["Results"]["Posts"][0])["PostID"]
-    # if the file is empty
-if newest == '' or int(newest) != nowNewest:
-  print("Have to update!")
-  writeFile(txtFilePath, nowNewest, json_re)
-#   notification on corner
-  myNotify()
-#   aggressively pop-up the storage .txt file
-#   myPopUp(txtFilePath)
-else:
-  print("Already up to date!")
+    nowNewest = (json_re["Results"]["Posts"][0])["PostID"]
+        # if the file is empty
+    if newest == '' or int(newest) != nowNewest:
+        print("Have to update!")
+        writeFile(txtFilePath, nowNewest, json_re)
+    #   notification on corner
+        myNotify()
+    #   aggressively pop-up the storage .txt file
+    #   myPopUp(txtFilePath)
+    else:
+        print("Already up to date!")
+
+    # reset variables
+    txtFilePath = txtNormFilePath
+
+    time.sleep(900)

@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
 txtFilePath = 'hcmus.txt'
 
@@ -79,35 +80,38 @@ def myNotify():
         )
 
         
-''' -----------------MAIN-----------------  '''
+while True:
+  ''' -----------------MAIN-----------------  '''
 
-targetUrl = "https://hcmus.edu.vn/category/dao-tao/dai-hoc/thong-tin-danh-cho-sinh-vien/"
+  targetUrl = "https://hcmus.edu.vn/category/dao-tao/dai-hoc/thong-tin-danh-cho-sinh-vien/"
 
-headers = {
-    "User-Agent": "Mozilla/5.0 Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0"
-}
+  headers = {
+      "User-Agent": "Mozilla/5.0 Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0"
+  }
 
-response = requests.get(targetUrl, headers=headers)
-soup = BeautifulSoup(response.text, 'html.parser')
+  response = requests.get(targetUrl, headers=headers)
+  soup = BeautifulSoup(response.text, 'html.parser')
 
-number = 17
-ch = "*"
-border = ch * number
+  number = 17
+  ch = "*"
+  border = ch * number
 
-targetBlock = soup.find("div", class_="cmsmasters_archive")
+  targetBlock = soup.find("div", class_="cmsmasters_archive")
 
-# read file
-fin = open('hcmus.txt', 'r')
-newest = fin.readline().strip()
+  # read file
+  fin = open('hcmus.txt', 'r')
+  newest = fin.readline().strip()
 
-nowNewest = targetBlock.article['id']
-# if the file is empty
-if newest != nowNewest:
-  print("Have to update!")
-  writeFile(targetBlock)
-#   notification on corner
-  myNotify()
-#   aggressively pop-up the storage .txt file
-#   myPopUp()
-else:
-  print("Already up to date!")
+  nowNewest = targetBlock.article['id']
+  # if the file is empty
+  if newest != nowNewest:
+    print("Have to update!")
+    writeFile(targetBlock)
+  #   notification on corner
+    myNotify()
+  #   aggressively pop-up the storage .txt file
+  #   myPopUp()
+  else:
+    print("Already up to date!")
+
+  time.sleep(900)

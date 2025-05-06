@@ -1,5 +1,11 @@
-16750
+16759
 
+
+2025-05-06T15:26:27.82 _ [ Danh sách sinh viên tham quan VNG ngày 19/5 ]
+https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16759
+
+2025-05-06T10:40:43.13 _ [ Danh sách sinh viên tham quan công ty Saritasa Việt Nam ngày 13/5 ]
+https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16755
 
 2025-05-04T13:00:34.07 _ [ Xin chúc mừng giảng viên và nhóm sinh viên của FIT@HCMUS đã báo cáo thành công tại hội nghị uy tín quốc tế ]
 https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16750
@@ -54,10 +60,4 @@ https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16705
 
 2025-04-09T16:44:17.037 _ [ Hội thảo trực tuyến về Chương trình Nghiên cứu ADM & Chương trình Đào tạo Kỹ sư AI Vingroup ]
 https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16704
-
-2025-04-09T14:05:21.903 _ [ Danh sách sinh viên tham quan công ty TMA Tech Group ngày 17/4 ]
-https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16699
-
-2025-04-04T17:27:15.487 _ [ [Media support] AI & IC Design Competition – A Great Opportunity for Students ]
-https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16688
 
