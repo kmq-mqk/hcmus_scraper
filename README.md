@@ -69,3 +69,4 @@ python hcmus_scraper.py
 
 ## UPDATE 06/05/2025
 - Chương trình phiên bản này sẽ chạy trong background và cào thông tin trên web đối tượng mỗi 15 phút, người dùng có thể dễ dàng điều chỉnh thời gian nghỉ giữa các đợt cào bằng cách thay đổi giá trị cho time.sleep() ở cuối chương trình.
+- Cần cài đặt thêm thư viện 'time' của python.
