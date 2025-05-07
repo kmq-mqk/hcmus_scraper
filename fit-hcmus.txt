@@ -1,5 +1,11 @@
-16759
+16766
 
+
+2025-05-07T15:00:00 _ [ Tiến sĩ Lê Ngọc Thành được bổ nhiệm Phó trưởng khoa Công nghệ thông tin ]
+https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16766
+
+2025-05-07T09:16:00 _ [ MoveIT: ON THE HEATING TRACK is officially open for registration! Let’s run summer miles for future bytes! ]
+https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16763
 
 2025-05-06T15:26:27.82 _ [ Danh sách sinh viên tham quan VNG ngày 19/5 ]
 https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16759
@@ -54,10 +60,4 @@ https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16707
 
 2025-04-10T10:13:00 _ [ Thông báo tuyển sinh viên tham gia Chương trình Thực tập hè tại Viện Khoa học và Công nghệ Tiên tiến Hàn Quốc (KAIST) năm 2025 ]
 https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16706
-
-2025-04-09T17:11:10.543 _ [ Giải thưởng “Thiết kế, chế tạo, ứng dụng” lần thứ 13 - Năm 2025 ]
-https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16705
-
-2025-04-09T16:44:17.037 _ [ Hội thảo trực tuyến về Chương trình Nghiên cứu ADM & Chương trình Đào tạo Kỹ sư AI Vingroup ]
-https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16704
 

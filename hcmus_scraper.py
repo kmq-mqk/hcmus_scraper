@@ -59,27 +59,29 @@ def myNotify():
     import platform
     import os
 
-# for lovely icon on notification
-    iconPath = ''
+# for lovely icon on notification                         iconPath = ''
     imgName = 'panic_bocchi'
     cwd = os.getcwd()
 
-    if platform.system() == 'Linux':
-        iconPath = cwd + '/' + imgName + '.png'
-    elif platform.system() == 'Windows':
-        iconPath = cwd + '/' + imgName + '.ico'
+    if "com.termux" in os.environ.get("PREFIX", ""):
+        os.system('termux-notification --title "HCMUS Scraper" --content "New post on hcmus!"')
 
-# spam 3 notifications
-    for _ in range(3):
-        notification.notify(
-            title = 'ATTENTION !!!',
-            message = 'New post on hcmus',
-            app_name = 'Your Scraper',
-            app_icon = str(iconPath),
-            timeout = 60
+    else:
+        if platform.system() == 'Linux':
+            iconPath = cwd + '/' + imgName + '.png' 
+        elif platform.system() == 'Windows':
+            iconPath = cwd + '/' + imgName + '.ico'
+
+        # spam 3 notifications
+        for _ in range(3):
+            notification.notify(
+                title = 'ATTENTION !!!',
+                message = 'New post on hcmus',
+                app_name = 'Your Scraper',
+                app_icon = str(iconPath),
+                timeout = 60
         )
 
-        
 while True:
   ''' -----------------MAIN-----------------  '''
 
@@ -113,5 +115,5 @@ while True:
   #   myPopUp()
   else:
     print("Already up to date!")
-
-  time.sleep(900)
+  
+    time.sleep(900)
