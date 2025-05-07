@@ -7,39 +7,41 @@ txtFilePath = 'hcmus.txt'
 ''' -----------------WRITE PROCEDURE----------------- '''
 
 def writeFile(targetBlock):
-  # write file
-  fout = open(txtFilePath, 'w')
+    # write file
+    fout = open(txtFilePath, 'w')
+  
+    # to check if there is new post later
+    fout.write(f"{targetBlock.article['id']}\r\n\r\n\r\n")
+  
+    # get info relate to students
+    fout.write(f"{border} THONG TIN SV {border}\r\n")
+  
+    articles = targetBlock.find_all("article")
+  
+    for article in articles:
+      content = article.find("div", class_="cmsmasters_archive_item_cont_wrap")
+      data = content.header.h2.a
+      date = content.footer.span.abbr
+  
+      fout.write(f"{date.string} _ [ {data.string.get_text(strip=True)} ]\r\n{data['href']}\r\n\r\n")
+  
+    # get newest posts
+    fout.write(f"\r\n{border} THONG TIN MOI NHAT {border}\r\n")
+  
+    targetBlock = soup.find(string="Bài viết mới")
+  
+    targetBlock = targetBlock.parent.parent
+    targetBlock = targetBlock.ul
+  
+    data = targetBlock.find_all("li")
+  
+    for post in data:
+      fout.write(f"{post.span.string} _ [ {post.a.string} ]\r\n{post.a['href']}\r\n\r\n")
 
-  # to check if there is new post later
-  fout.write(f"{targetBlock.article['id']}\r\n\r\n\r\n")
-
-  # get info relate to students
-  fout.write(f"{border} THONG TIN SV {border}\r\n")
-
-  articles = targetBlock.find_all("article")
-
-  for article in articles:
-    content = article.find("div", class_="cmsmasters_archive_item_cont_wrap")
-    data = content.header.h2.a
-    date = content.footer.span.abbr
-
-    fout.write(f"{date.string} _ [ {data.string.get_text(strip=True)} ]\r\n{data['href']}\r\n\r\n")
-
-  # get newest posts
-  fout.write(f"\r\n{border} THONG TIN MOI NHAT {border}\r\n")
-
-  targetBlock = soup.find(string="Bài viết mới")
-
-  targetBlock = targetBlock.parent.parent
-  targetBlock = targetBlock.ul
-
-  data = targetBlock.find_all("li")
-
-  for post in data:
-    fout.write(f"{post.span.string} _ [ {post.a.string} ]\r\n{post.a['href']}\r\n\r\n")
+    fout.close()
 
 
-''' -----------------NOTIFY PROCEDURE----------------- '''
+''' -----------------POP-UP PROCEDURE----------------- '''
 
 def myPopUp():
     import os
@@ -65,7 +67,6 @@ def myNotify():
 
     if "com.termux" in os.environ.get("PREFIX", ""):
         os.system('termux-notification --title "HCMUS Scraper" --content "New post on hcmus!"')
-
     else:
         if platform.system() == 'Linux':
             iconPath = cwd + '/' + imgName + '.png' 
@@ -83,37 +84,42 @@ def myNotify():
         )
 
 while True:
-  ''' -----------------MAIN-----------------  '''
-
-  targetUrl = "https://hcmus.edu.vn/category/dao-tao/dai-hoc/thong-tin-danh-cho-sinh-vien/"
-
-  headers = {
-      "User-Agent": "Mozilla/5.0 Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0"
-  }
-
-  response = requests.get(targetUrl, headers=headers)
-  soup = BeautifulSoup(response.text, 'html.parser')
-
-  number = 17
-  ch = "*"
-  border = ch * number
-
-  targetBlock = soup.find("div", class_="cmsmasters_archive")
-
-  # read file
-  fin = open('hcmus.txt', 'r')
-  newest = fin.readline().strip()
-
-  nowNewest = targetBlock.article['id']
-  # if the file is empty
-  if newest != nowNewest:
-    print("Have to update!")
-    writeFile(targetBlock)
-  #   notification on corner
-    myNotify()
-  #   aggressively pop-up the storage .txt file
-  #   myPopUp()
-  else:
-    print("Already up to date!")
+    ''' -----------------MAIN-----------------  '''
   
+    targetUrl = "https://hcmus.edu.vn/category/dao-tao/dai-hoc/thong-tin-danh-cho-sinh-vien/"
+  
+    headers = {
+        "User-Agent": "Mozilla/5.0 Chrome/135.0.0.0 Safari/537.36 Edg/135.0.0.0"
+    }
+  
+    response = requests.get(targetUrl, headers=headers)
+    soup = BeautifulSoup(response.text, 'html.parser')
+  
+    number = 17
+    ch = "*"
+    border = ch * number
+  
+    targetBlock = soup.find("div", class_="cmsmasters_archive")
+  
+    # read file
+    fin = open(txtFilePath, 'r')
+    newest = fin.readline().strip()
+  
+    nowNewest = targetBlock.article['id']
+    # if the file is empty
+    if newest != nowNewest:
+        print("Have to update!")
+        writeFile(targetBlock)
+       
+    #   notification on corner
+        myNotify()
+
+    #   aggressively pop-up the storage .txt file
+        myPopUp()
+    else:
+        print("Already up to date!")
+
+    fin.close()
+
     time.sleep(900)
+

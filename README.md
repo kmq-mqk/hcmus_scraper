@@ -24,17 +24,21 @@ Scrapers cào thông tin từ web và tổng hợp vắn tắt các bài viết 
 
 Đã cài các thư viện python sau:
 - requests
-- json
 - bs4 (nếu muốn chạy hcmus_scraper.py)
 - plyer
-- os
-- subprocess
-- platform
+
+### Cài đặt các thư viện cần sử dụng
+```bash
+pip install -r requirements.txt
+```
 
 ## Tải về
 
 ```bash
 git clone https://github.com/kmq-mqk/hcmus_scraper.git
+```
+```bash
+cd hcmus_scraper
 ```
 
 hoặc tải file .zip của repository này
@@ -69,4 +73,13 @@ python hcmus_scraper.py
 
 ## UPDATE 06/05/2025
 - Chương trình phiên bản này sẽ chạy trong background và cào thông tin trên web đối tượng mỗi 15 phút, người dùng có thể dễ dàng điều chỉnh thời gian nghỉ giữa các đợt cào bằng cách thay đổi giá trị cho time.sleep() ở cuối chương trình.
-- Cần cài đặt thêm thư viện 'time' của python.
+- Sử dụng thêm thư viện 'time' của python.
+
+## UPDATE 07/05/2025 - CHẠY SCRAPERS TRÊN ANDROID
+- Vì Android không dùng được plyer trong việc thông báo lên hệ thống. Vậy nên, để chạy scrapers trên Android cần phải setup một số thứ (đây là những gì mình đã làm để scrapers chạy trên điện thoại của mình, trải nghiệm chủ quan, nếu có sai sót xin mọi người thông cảm)
+    - Cài đặt F-Droid
+    - Bên trong F-Droid, tìm và cài đặt Termux và Termux:API
+    - Mở Termux:API, Disable 2 mục đầu tiên, mục cuối bỏ qua
+    - Mở Termux, gõ dòng lệnh ```termux-setup-storage" sau đó cho phép Termux truy cập vào các thư mục và thông báo (để Termux:API có thể thông báo trên điện thoại của bạn?)
+    - Ở trong Termux, sử dụng shell commands như trên máy tính để cài đặt các thư viện python cần dùng, git clone để clone repo này, truy cập vào thư mục chứa scrapers (dùng lệnh ```cd```) và chạy chúng
+

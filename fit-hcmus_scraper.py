@@ -18,6 +18,8 @@ def writeFile(filePath, nowNewest, json_re):
         PostUrl = originUrl + post['PostDetailsUrl']
         fout.write(f"{post['LastUpdate']} _ [ {post['PostTitle']} ]\r\n{PostUrl}\r\n\r\n")
 
+    fout.close()
+
 
 ''' -----------------POP-UP PROCEDURE----------------- '''
 
@@ -150,5 +152,7 @@ while True:
 
     # reset variables
     txtFilePath = txtNormFilePath
+
+    fin.close()
 
     time.sleep(900)
