@@ -108,16 +108,16 @@ while True:
     nowNewest = targetBlock.article['id']
     # if the file is empty
     if newest != nowNewest:
-        print("Have to update!")
+        print("Have to update hcmus!")
         writeFile(targetBlock)
        
     #   notification on corner
         myNotify()
 
     #   aggressively pop-up the storage .txt file
-        myPopUp()
-    else:
-        print("Already up to date!")
+#        myPopUp()
+#    else:
+#        print("Already up to date!")
 
     fin.close()
 

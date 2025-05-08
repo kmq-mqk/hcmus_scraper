@@ -106,14 +106,14 @@ while True:
     nowNewest = (json_re["Results"]["Posts"][0])["PostID"]
         # if the file is empty
     if newest == '' or int(newest) != nowNewest:
-        print("Have to update!")
+        print("Have to update fit-general!")
         writeFile(txtFilePath, nowNewest, json_re)
     #   notification on corner
         myNotify()
     #   aggressively pop-up the storage .txt file
     #   myPopUp(txtFilePath)
-    else:
-        print("Already up to date!")
+#    else:
+#        print("Already up to date!")
 
 
 
@@ -141,14 +141,14 @@ while True:
     nowNewest = (json_re["Results"]["Posts"][0])["PostID"]
         # if the file is empty
     if newest == '' or int(newest) != nowNewest:
-        print("Have to update!")
+        print("Have to update fit-seminar!")
         writeFile(txtFilePath, nowNewest, json_re)
     #   notification on corner
         myNotify()
     #   aggressively pop-up the storage .txt file
     #   myPopUp(txtFilePath)
-    else:
-        print("Already up to date!")
+#    else:
+#        print("Already up to date!")
 
     # reset variables
     txtFilePath = txtNormFilePath

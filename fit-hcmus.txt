@@ -1,5 +1,11 @@
-16766
+16770
 
+
+2025-05-08T11:03:46.2 _ [ Đăng ký tham quan công ty KMS Technology ngày 22/05 ]
+https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16770
+
+2025-05-07T16:03:00.267 _ [ [Media support] French Tech Summit Vietnam 2025 ]
+https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16767
 
 2025-05-07T15:00:00 _ [ Tiến sĩ Lê Ngọc Thành được bổ nhiệm Phó trưởng khoa Công nghệ thông tin ]
 https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16766
@@ -54,10 +60,4 @@ https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16711
 
 2025-04-11T14:10:00 _ [ SAP Open Day - Explore our modern office and work life at SAP Labs Vietnam ]
 https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16709
-
-2025-04-10T13:57:45.38 _ [ Ngày hội việc làm Công nghệ thông tin năm 2025 ]
-https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16707
-
-2025-04-10T10:13:00 _ [ Thông báo tuyển sinh viên tham gia Chương trình Thực tập hè tại Viện Khoa học và Công nghệ Tiên tiến Hàn Quốc (KAIST) năm 2025 ]
-https://www.fit.hcmus.edu.vn//vn/Default.aspx?tabid=292&newsid=16706
 
