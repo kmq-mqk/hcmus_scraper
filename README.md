@@ -80,6 +80,6 @@ python hcmus_scraper.py
     - Cài đặt F-Droid
     - Bên trong F-Droid, tìm và cài đặt Termux và Termux:API
     - Mở Termux:API, Disable 2 mục đầu tiên, mục cuối bỏ qua
-    - Mở Termux, gõ dòng lệnh ```termux-setup-storage" sau đó cho phép Termux truy cập vào các thư mục và thông báo (để Termux:API có thể thông báo trên điện thoại của bạn?)
+    - Mở Termux, gõ dòng lệnh ```termux-setup-storage``` sau đó cho phép Termux truy cập vào các thư mục và thông báo (để Termux:API có thể thông báo trên điện thoại của bạn?)
     - Ở trong Termux, sử dụng shell commands như trên máy tính để cài đặt các thư viện python cần dùng, git clone để clone repo này, truy cập vào thư mục chứa scrapers (dùng lệnh ```cd```) và chạy chúng
 
