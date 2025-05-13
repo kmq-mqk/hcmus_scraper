@@ -66,7 +66,6 @@ python hcmus_scraper.py
 
 ## LƯU Ý
 
-- CHỈ MỚI KIỂM TRA CÁC CHƯƠNG TRÌNH VỚI KALI LINUX, không đảm bảo scrapers chạy đúng theo mong muốn với Windows hay Linux Distros khác.
 - Các chương trình ở đây chỉ cào 1 LẦN duy nhất cho mỗi phần thông tin mục tiêu vì mình muốn máy của mình tự động chạy scrapers (mình không đăng lên) sau một khoảng thời gian định trước (không muốn chạy ở background vì nặng máy).
 - Nếu bạn không muốn hay không biết cách để máy tự động chạy scrapers, bạn có thể đưa scrapers chạy ở background bằng cách chỉnh sửa source một chút.
     + Cho phần "--MAIN--" lặp vô hạn lần
