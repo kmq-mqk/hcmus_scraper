@@ -9,7 +9,7 @@ txtFilePath = txtNormFilePath
 ''' -----------------WRITE PROCEDURE----------------- '''
 
 def writeFile(filePath, nowNewest, json_re):
-    fout = open(filePath, 'w')
+    fout = open(filePath, 'w', encoding="utf-8")
 
     # write the newest's post id for later check
     fout.write(f"{nowNewest}\r\n\r\n\r\n")
@@ -100,7 +100,7 @@ while True:
 
     # check if there is new post, if so, notice
         # read file
-    fin = open(txtFilePath, 'r')
+    fin = open(txtFilePath, 'r', encoding="utf-8")
     newest = fin.readline().strip()
 
     nowNewest = (json_re["Results"]["Posts"][0])["PostID"]
@@ -135,7 +135,7 @@ while True:
     # check if there is new post, if so, notice
     txtFilePath = txtSemFilePath
         # read file
-    fin = open(txtFilePath, 'r')
+    fin = open(txtFilePath, 'r', encoding="utf-8")
     newest = fin.readline().strip()
 
     nowNewest = (json_re["Results"]["Posts"][0])["PostID"]

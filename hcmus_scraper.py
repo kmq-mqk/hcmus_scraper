@@ -8,7 +8,7 @@ txtFilePath = 'hcmus.txt'
 
 def writeFile(targetBlock):
     # write file
-    fout = open(txtFilePath, 'w')
+    fout = open(txtFilePath, 'w', encoding="utf-8")
   
     # to check if there is new post later
     fout.write(f"{targetBlock.article['id']}\r\n\r\n\r\n")
@@ -102,7 +102,7 @@ while True:
     targetBlock = soup.find("div", class_="cmsmasters_archive")
   
     # read file
-    fin = open(txtFilePath, 'r')
+    fin = open(txtFilePath, 'r', encoding="utf-8")
     newest = fin.readline().strip()
   
     nowNewest = targetBlock.article['id']

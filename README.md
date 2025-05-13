@@ -46,6 +46,16 @@ hoặc tải file .zip của repository này
 ## Chạy scrapers
 Chạy các dòng lệnh tương ứng dưới đây trên terminal / shell
 
+### Với Windows
+```
+start python fit-hcmus_scraper.py
+```
+
+```
+start python hcmus_scraper.py
+```
+
+### Với Linux
 ```bash 
 python fit-hcmus_scraper.py
 ```
